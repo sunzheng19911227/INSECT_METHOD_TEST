@@ -5,7 +5,7 @@ $cookieVerify = dirname(__FILE__)."/verify.tmp";
 $cookieSuccess = dirname(__FILE__)."/1769.tmp";
 session_start();
 if($_SESSION['go'] != 1){
-	echo "<script>alert('用户密码正确，请输入验证码');</script>";
+	echo "<script>alert('password right~');</script>";
 	// 获取cookie并保存
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_URL, "http://jwxt.sxau.edu.cn/loginAction.do");
