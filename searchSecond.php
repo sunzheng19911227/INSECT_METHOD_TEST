@@ -10,8 +10,8 @@ header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/verify.tmp";
 $cookieSuccess = dirname(__FILE__)."/success.tmp";
-define('USERNAME', '20131613115'); // 改为自己的学号
-define('PASSWORD', '881520'); // 改为自己的密码
+define('USERNAME', '学号'); // 改为自己的学号
+define('PASSWORD', '密码'); // 改为自己的密码
 session_start();
 if($_SESSION['go'] != 1){
 	echo "<script>alert('password right~');</script>";

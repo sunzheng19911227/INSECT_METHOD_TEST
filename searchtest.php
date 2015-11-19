@@ -57,8 +57,10 @@ http://jwxt.sxau.edu.cn/loginAction.do
 zjh1=&tips=&lx=&evalue=&eflag=&fs=&dzslh=&zjh=20131613115&mm=881520&v_yzm=9yr9
 ***/
 
+/******** 用户名、密码 *********/
 $username = 'test';
 $password = md5($username);
+/******** cookie目录  *********/
 $cookie_file = dirname(__FILE__).'/cookie.txt';
 
 $Smarki = new loginSmarki($username,$password,$cookie_file);
