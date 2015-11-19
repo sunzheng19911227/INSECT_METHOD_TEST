@@ -58,14 +58,14 @@ if($_SESSION['go'] != 1){
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	$result = curl_exec($ch);
-	dump($result);
+	printf_dump($result);
 	curl_close($ch);
 	echo $fields_string;
 	session_destroy();
 	// 登录成功,查看success.tmp cookie文件有相应用户名等信息
 }
 
-function dump($v){
+function printf_dump($v){
 	echo "<pre>";
 	var_dump($v);
 	echo "</pre>";

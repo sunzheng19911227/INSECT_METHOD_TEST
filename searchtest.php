@@ -39,11 +39,11 @@ class loginSmarki
 		curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookie_file);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		$contents = curl_exec($ch);
-		$this->dump($contents);
+		$this->printf_dump($contents);
 		curl_close($ch);
 	}
 
-	private function dump($v){
+	private function printf_dump($v){
 		echo "<pre>";
 		var_dump($v);
 		echo "</pre>";
