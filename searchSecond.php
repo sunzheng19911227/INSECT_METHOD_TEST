@@ -2,7 +2,9 @@
 header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/verify.tmp";
-$cookieSuccess = dirname(__FILE__)."/1769.tmp";
+$cookieSuccess = dirname(__FILE__)."/success.tmp";
+define('USERNAME', '20150000000'); // 改为自己的学号
+define('PASSWORD', '000000'); // 改为自己的密码
 session_start();
 if($_SESSION['go'] != 1){
 	echo "<script>alert('password right~');</script>";
@@ -31,9 +33,6 @@ if($_SESSION['go'] != 1){
 }else{
 	// 登录
 	$ch = curl_init(); 
-	// 用户名\密码 
-	$user = "20131613115"; 
-	$pass = "881520";
 	$verify = $_POST["vcode"];
 	$url = "http://jwxt.sxau.edu.cn/loginAction.do"; 
  
@@ -46,7 +45,7 @@ if($_SESSION['go'] != 1){
 	curl_setopt($ch, CURLOPT_POST, true); 
 
 	//zjh1=&tips=&lx=&evalue=&eflag=&fs=&dzslh=&zjh=20131613115&mm=881520&v_yzm=9yr9
-	$fields_post = array("zjh"=> $user, "mm"=> $pass, "v_yzm"=>$verify); 
+	$fields_post = array("zjh"=> USERNAME, "mm"=> PASSWORD, "v_yzm"=>$verify); 
 	$headers_login = array("User-Agent" => "Mozilla/5.0 (Windows NT 5.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"); 
 	$fields_string = ""; 
 	foreach($fields_post as $key => $value){ 
@@ -75,7 +74,7 @@ if($_SESSION['go'] != 1){
 	curl_close($ch);
 	echo $fields_string;
 	session_destroy();
-	// 登录成功,查看1769.tmp cookie文件有相应用户名等信息
+	// 登录成功,查看success.tmp cookie文件有相应用户名等信息
 }
 
 function dump($v){
