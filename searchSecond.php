@@ -3,8 +3,9 @@ header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/verify.tmp";
 $cookieSuccess = dirname(__FILE__)."/1769.tmp";
-
-if(!$_POST){
+session_start();
+if($_SESSION['go'] != 1){
+	echo "<script>alert('用户密码正确，请输入验证码');</script>";
 	// 获取cookie并保存
 	$ch = curl_init(); 
 	curl_setopt($ch, CURLOPT_URL, "http://jwxt.sxau.edu.cn/loginAction.do");
@@ -16,7 +17,7 @@ if(!$_POST){
  
 	// 带上cookie抓取验证码，必须带上cookie，否则验证码不对应
 	$ch = curl_init(); 
-	curl_setopt($ch, CURLOPT_URL, "/validateCodeAction.do?random=0.9432079987600446");
+	curl_setopt($ch, CURLOPT_URL, "http://jwxt.sxau.edu.cn/validateCodeAction.do?random=0.9432079987600446");
 	curl_setopt($ch, CURLOPT_HEADER, 0);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); 
 	curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieVerify);
@@ -26,12 +27,13 @@ if(!$_POST){
 	curl_close($ch); 
 	// 手工验证码表单
 	echo "<form action=\"\" method=\"post\"><input type=\"text\" name=\"vcode\"><img src=\"verify.jpg\" /><br><input type=\"submit\" value=\"ok\"></form>";
+	$_SESSION['go'] = 1;
 }else{
 	// 登录
 	$ch = curl_init(); 
 	// 用户名\密码 
-	$user = "用户名"; 
-	$pass = "密码";
+	$user = "20131613115"; 
+	$pass = "881520";
 	$verify = $_POST["vcode"];
 	$url = "http://jwxt.sxau.edu.cn/loginAction.do"; 
  
@@ -50,14 +52,29 @@ if(!$_POST){
 	foreach($fields_post as $key => $value){ 
 		$fields_string .= $key . "=" . $value . "&"; 
 	} 
+	/**
+	$url = "http://smartki.sinaapp.com";
+	$ch = curl_init($url);
+	curl_setopt($ch, CURLOPT_HEADER, 0);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookie_file);
+	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+	$contents = curl_exec($ch);
+	$this->dump($contents);
+	curl_close($ch);
+	**/
 	$fields_string = rtrim($fields_string , "&"); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers_login); 
 	curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieSuccess);
-	curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string); 
+	curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieVerify);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-	$result= curl_exec($ch);
-	curl_close($ch);
+	$result = curl_exec($ch);
 	dump($result);
+	curl_close($ch);
+	echo $fields_string;
+	session_destroy();
 	// 登录成功,查看1769.tmp cookie文件有相应用户名等信息
 }
 
