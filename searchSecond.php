@@ -67,7 +67,7 @@ if($_SESSION['go'] != 1){
 	$result = curl_exec($ch);
 	printf_dump($result);
 	curl_close($ch);
-	echo $fields_string;
+	// echo $fields_string;
 	session_destroy();
 	// 登录成功,查看success.tmp cookie文件有相应用户名等信息
 }
