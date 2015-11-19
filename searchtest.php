@@ -5,7 +5,7 @@ header("Content-Type: text/html;charset=utf-8");
 *
 * 2015/11/19
 * 常炎隆
-*
+* porschegt23@foxmail.com
 */
 class loginSmarki
 {
