@@ -1,4 +1,11 @@
 <?php 
+/**
+*
+* 2015/11/19
+* 常炎隆
+*
+*/
+
 header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/verify.tmp";
