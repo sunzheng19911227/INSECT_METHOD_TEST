@@ -3,8 +3,8 @@ header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/verify.tmp";
 $cookieSuccess = dirname(__FILE__)."/success.tmp";
-define('USERNAME', '20150000000'); // 改为自己的学号
-define('PASSWORD', '000000'); // 改为自己的密码
+define('USERNAME', '20131613115'); // 改为自己的学号
+define('PASSWORD', '881520'); // 改为自己的密码
 session_start();
 if($_SESSION['go'] != 1){
 	echo "<script>alert('password right~');</script>";
@@ -51,23 +51,11 @@ if($_SESSION['go'] != 1){
 	foreach($fields_post as $key => $value){ 
 		$fields_string .= $key . "=" . $value . "&"; 
 	} 
-	/**
-	$url = "http://smartki.sinaapp.com";
-	$ch = curl_init($url);
-	curl_setopt($ch, CURLOPT_HEADER, 0);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_COOKIEFILE, $this->cookie_file);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-	$contents = curl_exec($ch);
-	$this->dump($contents);
-	curl_close($ch);
-	**/
+
 	$fields_string = rtrim($fields_string , "&"); 
 	curl_setopt($ch, CURLOPT_HTTPHEADER, $headers_login); 
 	curl_setopt($ch, CURLOPT_COOKIEJAR, $cookieSuccess);
-	curl_setopt($ch, CURLOPT_COOKIEFILE, $cookieVerify);
 	curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); 
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 	$result = curl_exec($ch);
 	dump($result);

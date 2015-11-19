@@ -58,5 +58,5 @@ $username = 'test';
 $password = md5($username);
 $cookie_file = dirname(__FILE__).'/cookie.txt';
 
-$Smarki = new loginSmarki("numberwolf","65d1adefc7bb2ced01b036093925dde7",$cookie_file);
+$Smarki = new loginSmarki($username,$password,$cookie_file);
 ?> 
