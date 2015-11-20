@@ -1,3 +1,3 @@
 git add -A;
-git commit -m "refresh"
-git push -u origin master;
+git commit -m $(date +%Y%m%d);
+git push origin devDemo;
