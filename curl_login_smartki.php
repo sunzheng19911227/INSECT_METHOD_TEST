@@ -54,7 +54,7 @@ class loginSmarki
 }
 /***
 http://jwxt.sxau.edu.cn/loginAction.do
-zjh1=&tips=&lx=&evalue=&eflag=&fs=&dzslh=&zjh=20131613115&mm=881520&v_yzm=9yr9
+zjh1=&tips=&lx=&evalue=&eflag=&fs=&dzslh=&zjh=20131111111&mm=111111&v_yzm=9yr9
 ***/
 
 /******** 用户名、密码 *********/
