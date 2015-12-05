@@ -14,7 +14,7 @@ porschegt23@foxmail.com
 reload(sys) 
 sys.setdefaultencoding( "utf-8" )
 type = sys.getfilesystemencoding()
-global user_cookie
+global _user_cookie
 
 def login_zhihu():
 	zhihu_url = 'http://www.zhihu.com'
@@ -23,8 +23,6 @@ def login_zhihu():
 	_Cookies_File_Name = 'cookies.json'
 
 	login_data = {
-	    'email': '531365872@qq.com', 
-	    'password': 'TingGT2911Long',
 	    'rememberme': 'true',
 	}
 
@@ -58,6 +56,8 @@ def login_zhihu():
 
 	_xsrf = get_xsrf(zhihu_url)
 	login_data['_xsrf'] = _xsrf.encode('utf-8')
+	login_data['email'] = raw_input('email: ')
+	login_data['password'] = raw_input('password: ')
 
 
 	# 得到验证码图片
@@ -79,12 +79,16 @@ def login_zhihu():
 	html_post = s.post(login_url,headers=head,data=login_data)
 	print html_post.text
 
-	user_cookie = html_post.cookies
-	print user_cookie.values()
-	# cookieF = file("saveState.cookie","w+")
-	# cookieF.write(user_cookie.values())
+	# 保存cookie到本地
+	_user_cookie = html_post.cookies
+	cookieF = file("saveState.cookie","w+")
+	cookieF.write("Cookie:")
+	for i in range(0,len(_user_cookie.values())):
+		# print "键{0}:{1} \n值:{2}\n".format(i,_cookies.keys()[i],_cookies.values()[i])
+		cookieF.write(_user_cookie.keys()[i] + "=" + _user_cookie.values()[i] + ";")
 
-	res = s.get("http://www.zhihu.com/question/29755376?sort=created", headers=head, cookies=user_cookie)
+
+	res = s.get("http://www.zhihu.com/question/29755376?sort=created", headers=head, cookies=_user_cookie)
 	# print res.text
 
 	inputF = file("insectZhihu_data.html","w+")
