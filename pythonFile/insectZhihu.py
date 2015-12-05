@@ -3,25 +3,45 @@ import requests
 import sys
 import re
 import time
+import random
 
 reload(sys) 
 sys.setdefaultencoding( "utf-8" )
 type = sys.getfilesystemencoding()
 
 _Zhihu_URL = 'http://www.zhihu.com'
-_Login_URL = _Zhihu_URL + '/login'
+_Login_URL = _Zhihu_URL + '/login/email'
 _Captcha_URL_Prefix = _Zhihu_URL + '/captcha.gif?r='
 _Cookies_File_Name = 'cookies.json'
 
-head = {'X-Requested-With': 'XMLHttpRequest',
-       'Referer': 'http://www.zhihu.com',
-       'User-Agent': 'Mozilla/5.0 (Windows NT 6.3; WOW64; '
-                     'Trident/7.0; Touch; LCJB; rv:11.0)'
-                     ' like Gecko',
-       'Host': 'www.zhihu.com'}
+head = {
+		'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+        'Accept-Encoding': 'gzip, deflate, sdch',
+        'Accept-Language': 'en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4,zh-TW;q=0.2',
+        'Connection': 'keep-alive',
+        'Host': 'www.zhihu.com',
+        'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/43.0.2357.130 Safari/537.36', 
+        'Referer': 'http://www.zhihu.com/'
+        }
 
-html = requests.get(_Zhihu_URL,headers=head)
+s = requests.session()
+def gen_time_stamp():
+    return str(int(time.time())) + '%03d' % random.randint(0, 999)
+
+# 开始访问一次
+html = s.get(_Zhihu_URL,headers=head)
 html.encoding = "gb2312"
+# 验证码图片
+imgURL = _Captcha_URL_Prefix + gen_time_stamp()
+print imgURL
+# 保存验证码图片
+imgData = requests.get(imgURL,headers=head)
+with open('code.gif', 'wb') as f:
+    f.write(imgData.content)
+
+# 输入验证码
+captcha = raw_input("captcha: ")
+print(captcha)
 
 _cookies = html.cookies
 
@@ -33,30 +53,14 @@ q_c1 = _cookies.values()[2]
 n_c = _cookies.values()[1]
 cap_id = _cookies.values()[0]
 
-# 验证码图片
-imgURL = _Captcha_URL_Prefix + str(int(time.time() * 1000))
-print imgURL
-# 保存验证码图片
-imgData = requests.get(imgURL,headers=head)
-with open('code.gif', 'wb') as f:
-        f.write(imgData.content)
-
-# f = file("code.gif","w+")
-# f.write(imgData.text)
-# f.close()
+_email = raw_input("email: ")
+_password = raw_input("password: ")
 
 # 发送的数据
-#	_xsrf:8f677ad0d6da9a563a0331e8b7a527e7
-#	password:TingGT2911Long
-#	captcha:fzyd
-#	remember_me:true
-#	email:531365872%40qq.com
-data = {'_xsrf':_xsrf, 'password':'TingGT2911Long', 'remember_me':'true', 'email':'531365872@qq.com'}
+data = {'_xsrf':_xsrf, 'password':_password, 'remember_me':'true', 'email':_email, 'captcha':captcha}
+html_post = s.post(_Login_URL,headers=head,data=data)
 
+print html_post.text
 
-# print _cookies.keys()
-# print _cookies.values()
-
-# _cookies.save('cookiefile.txt')
 
 
