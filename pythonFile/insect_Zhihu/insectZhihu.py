@@ -4,6 +4,12 @@ import sys
 import re
 import time
 import random
+"""
+porschegt23@foxmail.com
+一个登录知乎的爬虫程序
+
+"""
+
 
 reload(sys) 
 sys.setdefaultencoding( "utf-8" )
@@ -74,7 +80,15 @@ def login_zhihu():
 	print html_post.text
 
 	user_cookie = html_post.cookies
-	print user_cookie
+	print user_cookie.values()
+	# cookieF = file("saveState.cookie","w+")
+	# cookieF.write(user_cookie.values())
+
+	res = s.get("http://www.zhihu.com/question/29755376?sort=created", headers=head, cookies=user_cookie)
+	# print res.text
+
+	inputF = file("insectZhihu_data.html","w+")
+	inputF.write(res.text)
 
 def startInsect():
     login_zhihu()

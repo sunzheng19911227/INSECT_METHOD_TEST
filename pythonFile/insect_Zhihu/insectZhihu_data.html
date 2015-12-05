@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dropEffect="none" class="no-js ">
+<head>
+<meta charset="utf-8" />
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit" />
+
+<title>
+
+python爬虫模拟登入知乎后，获取不到首页内容？ - 知乎
+
+</title>
+
+<meta name="apple-itunes-app" content="app-id=432274380, app-argument=zhihu://questions/29755376">
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta http-equiv="mobile-agent" content="format=html5;url=http://www.zhihu.com/question/29755376">
+<meta id="znonce" name="znonce" content="eb84188515c9456cb92f0c907cb34a9d">
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(57px).png" />
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(72px).png" sizes="72x72" />
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(76px).png" sizes="76x76" />
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(114px).png" sizes="114x114" />
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(120px).png" sizes="120x120" />
+<link rel="apple-touch-icon-precomposed" href="http://static.zhihu.com/static/img/ios/zhihu(152px).png" sizes="152x152" />
+
+
+<link rel="shortcut icon" href="http://static.zhihu.com/static/favicon.ico" type="image/x-icon">
+
+<link rel="search" type="application/opensearchdescription+xml" href="http://static.zhihu.com/static/search.xml" title="知乎" />
+<link rel="stylesheet" href="http://static.zhihu.com/static/revved/-/css/z.63b037d6.css">
+
+
+
+
+<!--[if lt IE 9]>
+<script src="http://static.zhihu.com/static/components/respond/dest/respond.min.js"></script>
+<link href="http://static.zhihu.com/static/components/respond/cross-domain/respond-proxy.html" id="respond-proxy" rel="respond-proxy" />
+<link href="/static/components/respond/cross-domain/respond.proxy.gif" id="respond-redirect" rel="respond-redirect" />
+<script src="/static/components/respond/cross-domain/respond.proxy.js"></script>
+<![endif]-->
+<script src="http://static.zhihu.com/static/revved/-/js/instant.4b42dd60.js"></script>
+
+
+
+<link rel="canonical" href="http://www.zhihu.com/question/29755376" />
+
+
+</head>
+
+<body class="zhi ">
+
+
+
+<div role="navigation" class="zu-top">
+<div class="zg-wrap modal-shifting clearfix" id="zh-top-inner">
+<a href="/" class="zu-top-link-logo" id="zh-top-link-logo" data-za-c="view_home" data-za-a="visit_home" data-za-l="top_navigation_zhihu_logo">知乎</a>
+
+<div class="top-nav-profile">
+<a href="/people/md52014" class="zu-top-nav-userinfo ">
+<span class="name">md52014</span>
+<img class="avatar avatar-s" alt="md52014" src="https://pic1.zhimg.com/cba02c9334e240104ccd559bb80c08d8_s.jpg" srcset="https://pic1.zhimg.com/cba02c9334e240104ccd559bb80c08d8_xs.jpg 2x" />
+<span id="zh-top-nav-new-pm" class="zg-noti-number zu-top-nav-pm-count"
+style="visibility:hidden" data-count="0">
+
+</span>
+</a>
+<ul class="top-nav-dropdown" id="top-nav-profile-dropdown">
+<li>
+<a href="/people/md52014">
+<i class="zg-icon zg-icon-dd-home"></i>我的主页
+</a>
+</li>
+
+<li>
+<a href="/inbox">
+<i class="zg-icon zg-icon-dd-pm"></i>私信
+<span id="zh-top-nav-pm-count" class="zu-top-nav-pm-count zg-noti-number"
+style="visibility:hidden" data-count="0">
+
+</span>
+</a>
+</li>
+<li>
+<a href="/settings">
+<i class="zg-icon zg-icon-dd-settings"></i>设置
+</a>
+</li>
+<li>
+<a href="/logout">
+<i class="zg-icon zg-icon-dd-logout"></i>退出
+</a>
+</li>
+</ul>
+
+</div>
+
+
+
+<button class="zu-top-add-question" id="zu-top-add-question">提问</button>
+
+
+<div role="search" id="zh-top-search" class="zu-top-search">
+<form method="GET" action="/search" id="zh-top-search-form" class="zu-top-search-form">
+
+
+
+<input type="hidden" name="type" value="question">
+<label for="q" class="hide-text">知乎搜索</label><input type="text" class="zu-top-search-input" id="q" name="q" autocomplete="off" value="" placeholder="搜索问题、话题或人">
+<button type="submit" class="zu-top-search-button"><span class="hide-text">搜索</span><span class="sprite-global-icon-magnifier-dark"></span></button>
+</form>
+</div>
+
+
+
+<div id="zg-top-nav" class="zu-top-nav">
+<ul class="zu-top-nav-ul zg-clear">
+
+<li class="zu-top-nav-li " id="zh-top-nav-home">
+<a class="zu-top-nav-link" href="/" id="zh-top-link-home" data-za-c="view_home" data-za-a="visit_home" data-za-l="top_navigation_home">首页</a>
+</li>
+<li class="top-nav-topic-selector zu-top-nav-li " id="zh-top-nav-topic">
+<a class="zu-top-nav-link" href="/topic" id="top-nav-dd-topic">话题</a>
+
+</li>
+<li class="zu-top-nav-li " id="zh-top-nav-explore">
+<a class="zu-top-nav-link" href="/explore">发现</a>
+</li>
+
+<li class="top-nav-noti zu-top-nav-li ">
+<a class="zu-top-nav-link" href="javascript:;" id="zh-top-nav-count-wrap" role="button"><span class="mobi-arrow"></span>消息</a>
+</li>
+
+
+
+</ul>
+<div class="zu-top-nav-live zu-noti7-popup zg-r5px no-hovercard" id="zh-top-nav-live-new" role="popup" tabindex="0">
+<div class="zu-top-nav-live-inner zg-r5px">
+<div class="zu-top-live-icon">&nbsp;</div>
+<div class="zu-home-noti-inner" id="zh-top-nav-live-new-inner">
+<div class="zm-noti7-popup-tab-container clearfix" tabindex="0">
+<button class="zm-noti7-popup-tab-item message">
+<span class="icon">消息</span>
+</button>
+<button class="zm-noti7-popup-tab-item user">
+<span class="icon">用户</span>
+</button>
+<button class="zm-noti7-popup-tab-item thanks">
+<span class="icon">赞同和感谢</span>
+</button>
+</div>
+</div>
+<div class="zm-noti7-frame-border top"></div>
+<div class="zm-noti7-frame">
+<div class="zm-noti7-content">
+<div class="zm-noti7-content-inner">
+<div class="zm-noti7-content-body">
+<div class="zm-noti7-popup-loading">
+<span class="noti-spinner-loading"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="zm-noti7-content" style="display:none;">
+<div class="zm-noti7-content-inner">
+<div class="zm-noti7-content-body">
+<div class="zm-noti7-popup-loading">
+<span class="noti-spinner-loading"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="zm-noti7-content" style="display:none;">
+<div class="zm-noti7-content-inner">
+<div class="zm-noti7-content-body">
+<div class="zm-noti7-popup-loading">
+<span class="noti-spinner-loading"></span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="zm-noti7-frame-border bottom"></div>
+<div class="zm-noti7-popup-footer">
+<a href="/notifications" class="zm-noti7-popup-footer-all zg-right">查看全部 &raquo;</a>
+<a href="/settings/notification" class="zm-noti7-popup-footer-set" title="通知设置" ><i class="zg-icon zg-icon-settings"></i></a>
+</div>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+<div class="zu-global-notify" id="zh-global-message" style="display:none">
+<div class="zg-wrap">
+<div class="zu-global-nitify-inner">
+<a class="zu-global-notify-close" href="javascript:;" title="关闭" name="close">x</a>
+<span class="zu-global-notify-icon"></span>
+<span class="zu-global-notify-msg"></span>
+</div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="zu-global-notify zu-global-notify-info" id="zh-question-redirect-info" style="display:none"></div>
+
+
+<div class="zu-global-notify zu-global-notify-info" id="zh-question-notification-summary" style="display:none;">
+<div class="zg-wrap">
+<div class="zu-global-nitify-inner">
+<span class="zu-global-notify-icon"></span>
+<ul class="zu-question-notify-wrap">
+</ul>
+</div>
+</div>
+</div>
+<div class="zg-wrap zu-main clearfix with-indention-votebar" itemscope itemtype="http://schema.org/Question" id="zh-single-question-page" data-urltoken="29755376" role="main">
+<div class="zu-main-content">
+<div class="zu-main-content-inner">
+
+
+<meta itemprop="isTopQuestion" content="false" />
+<meta itemprop="visitsCount" content="6518" />
+
+
+
+
+<div class="zm-tag-editor zg-section">
+<div class="zm-tag-editor-labels zg-clear">
+
+<a class="zm-item-tag"
+href="/topic/19552832"
+data-tip="t$b$19552832" data-token="19552832" data-topicid="872">
+Python
+</a>
+
+<a class="zm-item-tag"
+href="/topic/19577498"
+data-tip="t$b$19577498" data-token="19577498" data-topicid="9089">
+爬虫（计算机网络）
+</a>
+
+</div>
+</div>
+<div id="zh-question-title" data-editable="true">
+
+<h2 class="zm-item-title zm-editable-content">
+
+python爬虫模拟登入知乎后，获取不到首页内容？
+
+</h2>
+</div>
+<div id="zh-question-detail" class="zm-item-rich-text" data-resourceid="4084815" data-action="/question/detail">
+
+
+<textarea class="content hidden">&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot;&gt;&lt;span class=&quot;n&quot;&gt;__author__&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'JYC103'&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#coding:utf-8&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;re&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;configparser&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;urllib&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;nn&quot;&gt;urllib2&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;bs4&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Login_Zhihu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;zhihu_login&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;r'http://知乎 - 与世界分享你的知识、经验和见解'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'知乎 - 与世界分享你的知识、经验和见解'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;f&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;xsrf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;find&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;input&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;name&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;_xsrf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;})[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'value'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Accept&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;*/*&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Accept-Encoding&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;gzip, deflate&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Accept-Language&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;zh-CN,zh;q=0.8&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Connection&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;keep-alive&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Host&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;知乎 - 与世界分享你的知识、经验和见解&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;Referer&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;知乎 - 与世界分享你的知识、经验和见解&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;&quot;User-Agent&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36&quot;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;loginfo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'_xsrf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;xsrf&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;'email'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;'password'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;s&quot;&gt;'rememberme'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'y'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;zhihu_session&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;session&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;login&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zhihu_session&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;post&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zhihu_login&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;headers&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;loginfo&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;timeout&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;10&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status_code&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Login Success&quot;&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;login&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;status_code&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;Get_Zhuanlan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;():&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;zhuanlan_url&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'知乎 - 与世界分享你的知识、经验和见解'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;get_zhuanlan_reslut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;requests&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;zhuanlan_url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;get_zhuanlan_reslut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;encoding&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'utf-8'&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;zhuanlan_soup&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;BeautifulSoup&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get_zhuanlan_reslut&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;zhuanlan_soup&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#return zhuanlan_soup&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;__name__&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;==&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'__main__'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;configparser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;ConfigParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;cf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;config.ini&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cf&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;info&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;zhihu_email&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;cf&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;info&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;zhihu_password&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;Login_Zhihu&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;email&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;password&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;Get_Zhuanlan&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;已经进行模拟登入后，在获取首页信息时还是获取到了注册登入页面的，是我根本没有登入上还是咋子情况的？&lt;br&gt;&lt;br&gt;==============================&lt;br&gt;&lt;a href=&quot;https://github.com/fanne/Github&quot; class=&quot; wrap external&quot; target=&quot;_blank&quot; rel=&quot;nofollow noreferrer&quot;&gt;fanne/Github · GitHub&lt;i class=&quot;icon-external&quot;&gt;&lt;/i&gt;&lt;/a&gt;&lt;br&gt;还是偏过程式的写法~</textarea>
+<div class="zh-summary summary clearfix">
+__author__ = 'JYC103'
+#coding:utf-8
+import requests,re
+import configparser
+import urllib,urllib2
+from bs4 import BeautifulSoup
+
+def Login_Zhihu(email,password):
+zhihu_login = r'http://知乎 - 与世界分享你的知识、经验和见解'
+f=requests.get('知乎 - 与世界分享你的知识、经验和见解')
+f.encoding='utf-8'
+soup = BeautifulSoup(f.text)
+xsrf = (soup.find("input",{"name":"_xsrf"})['value'])
+
+headers = {
+"Accept": "*/*",
+"Accept-Encoding": "gzip, deflate",
+"Accept-Language": "zh-CN,zh;q=0.8",
+"Connection": "keep-alive",
+"Host":"知乎 - 与世界分享你的知识、经验和见解",
+"Referer":"知乎 - 与世界分享你的知识、经验和见解",
+"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36"
+}
+
+loginfo = {'_xsrf':xsrf,
+'email':email,
+'password':password,
+'rememberme':'y'}
+
+zhihu_session = requests.session()
+
+login = zhihu_session.post(zhihu_login,
+headers=headers,
+data=loginfo,
+timeout=10)
+
+if login.status_code == 200:
+print "Login Success"
+
+else:
+print login.status_code
+
+def Get_Zhuanlan():
+zhuanlan_url='知乎 - 与世界分享你的知识、经验和见解'
+get_zhuanlan_reslut=requests.get(zhuanlan_url)
+get_zhuanlan_reslut.encoding='utf-8'
+zhuanlan_soup=BeautifulSoup(get_zhuanlan_reslut.text)
+print zhuanlan_soup
+#return zhuanlan_soup
+
+if __name__=='__main__':
+cf = configparser.ConfigParser()
+cf.read("config.ini")
+email = cf .get("info","zhihu_email")
+password = cf.get("info","zhihu_password")
+
+Login_Zhihu(email=email,password=password)
+Get_Zhuanlan()
+…
+<a href="javascript:;" class="toggle-expand">显示全部</a>
+</div>
+
+
+</div>
+<div class="zm-item-meta zm-item-comment-el clearfix" id="zh-question-meta-wrap">
+<div class="zm-meta-panel">
+
+<a href="#" name="report-question" class="report zg-right">
+<i class="z-icon-no-help"></i>举报</a>
+
+<a href="#" name="addcomment" class="toggle-comment meta-item">
+<i class="z-icon-comment"></i>添加评论
+</a>
+<a href="#" name="share" class="share meta-item">
+<i class="z-icon-share"></i>分享
+</a>
+
+
+<span class="zg-bull">&bull;</span>
+<a href="#" name="invite" class="meta-item">邀请回答</a>
+
+
+
+
+</div>
+<div class="panel-container">
+
+</div>
+</div>
+
+<div class="zh-answers-title clearfix">
+
+<div id="zh-answers-filter" class="answers-sorter">
+
+<span class="lbl">按时间排序</span>
+<a class="lbl" href="/question/29755376">按投票排序</a>
+
+<i class="zg-icon zg-icon-double-arrow"></i>
+</div>
+
+<h3 data-num="5" id="zh-question-answer-num">5 个回答</h3>
+</div>
+<div class="zh-question-answer-summary-wrap zm-item-rich-text" id="zh-question-answer-summary-wrap" style="display:none;">
+<h3>
+<a href="http://www.zhihu.com/question/20014415" target="_blank" class="zg-right zg-link-litblue" style="font-weight:normal">什么是答案总结？</a>
+答案总结</h3>
+<div id="zh-question-answer-summary" class="zg-section"
+data-resourceid="4084815" data-action="/question/summary">
+
+<div class="zm-editable-content"></div>
+
+</div>
+</div>
+
+<div id="zh-question-answer-wrap" class="zh-question-answer-wrapper" data-widget="navigable" data-navigable-options="{&quot;items&quot;: &quot;&gt;.zm-item-answer&quot;}">
+
+<div tabindex="-1" class="zm-item-answer  zm-item-expanded"
+
+itemscope itemtype="http://schema.org/Answer"
+data-aid="19236698"
+data-atoken="59567591"
+data-collapsed="0"
+data-created="1439782756"
+data-deleted="0"
+data-helpful="1"
+data-isowner="0"
+data-copyable="1"
+
+
+>
+<a class="zg-anchor-hidden" name="answer-19236698"></a>
+
+
+<div class="zm-votebar">
+<button class="up ">
+<i class="icon vote-arrow"></i>
+<span class="count">1</span>
+<span class="label sr-only">赞同</span>
+</button>
+<button class="down ">
+<i class="icon vote-arrow"></i>
+<span class="label sr-only">反对</span>
+</button>
+</div>
+
+
+<div class="answer-head">
+<div class="zm-item-answer-author-info">
+<span class="name">匿名用户</span>
+</div>
+<div class="zm-item-vote-info " data-votecount="1">
+
+<span class="voters">
+<span class="user-block"><a data-tip="p$t$qin-shao-yang-39" href="http://www.zhihu.com/people/qin-shao-yang-39" class="zg-link" title="秦少阳">秦少阳</a></span>
+</span>
+
+
+<span>赞同</span>
+
+
+</div>
+</div>
+<div class="zm-item-rich-text js-collapse-body" data-resourceid="4084815" data-action="/answer/content" data-author-name="匿名用户" data-entry-url="/question/29755376/answer/59567591">
+
+
+<div class="zh-summary summary clearfix" style="display:none;">
+
+url = '<a class="internal" href="http://www.zhihu.com/login/email">知乎 - 与世界分享你的知识、经验和见解</a>'出现下面这个东东，求解答，谢谢！{ "r": 1, "errcode": 1991829, "data": {"captcha":"\u9a8c\u8bc1\u7801\u9519\u8bef"}, "msg": "\u9a8c\u8bc1\u7801\u9519\u8bef"}
+
+</div>
+
+
+<div class="zm-editable-content clearfix">
+url = '<a class="internal" href="http://www.zhihu.com/login/email">知乎 - 与世界分享你的知识、经验和见解</a>'<br>出现下面这个东东，求解答，谢谢！<br>{<br>    "r": 1,<br>    "errcode": 1991829,<br><br>    "data": {"captcha":"\u9a8c\u8bc1\u7801\u9519\u8bef"},<br><br><br>    "msg": "\u9a8c\u8bc1\u7801\u9519\u8bef"<br><br>}
+
+</div>
+
+</div>
+<a class="zg-anchor-hidden ac" name="19236698-comment"></a>
+<div class="zm-item-meta zm-item-comment-el answer-actions clearfix">
+<div class="zm-meta-panel">
+
+<span class="answer-date-link-wrap">
+<a class="answer-date-link meta-item" target="_blank" href="/question/29755376/answer/59567591">发布于 2015-08-17</a>
+</span>
+
+<a href="#" name="addcomment" class=" meta-item toggle-comment">
+<i class="z-icon-comment"></i>6 条评论</a>
+
+
+<a href="#" class="meta-item zu-autohide" name="thanks" data-thanked="false"><i class="z-icon-thank"></i>感谢</a>
+
+
+
+<a href="#" class="meta-item zu-autohide" name="share">
+<i class="z-icon-share"></i>分享</a>
+<a href="#" class="meta-item zu-autohide" name="favo">
+<i class="z-icon-collect"></i>收藏</a>
+
+
+
+
+<span class="zg-bull zu-autohide">&bull;</span>
+
+<a href="#" name="nohelp" class="meta-item zu-autohide">没有帮助</a>
+
+<span class="zg-bull zu-autohide">&bull;</span>
+<a href="#" name="report" class="meta-item zu-autohide">举报</a>
+
+
+
+<span class="zg-bull">&bull;</span>
+
+<a href="/terms#sec-licence-1" target="_blank" class="meta-item copyright"> 作者保留权利 </a>
+
+
+
+</div>
+</div>
+</div>
+
+<div tabindex="-1" class="zm-item-answer  zm-item-expanded"
+
+itemscope itemtype="http://schema.org/Answer"
+data-aid="13630672"
+data-atoken="45587951"
+data-collapsed="0"
+data-created="1429701398"
+data-deleted="0"
+data-helpful="1"
+data-isowner="0"
+data-copyable="1"
+
+
+>
+<a class="zg-anchor-hidden" name="answer-13630672"></a>
+
+
+<div class="zm-votebar">
+<button class="up ">
+<i class="icon vote-arrow"></i>
+<span class="count">1</span>
+<span class="label sr-only">赞同</span>
+</button>
+<button class="down ">
+<i class="icon vote-arrow"></i>
+<span class="label sr-only">反对</span>
+</button>
+</div>
+
+
+<div class="answer-head">
+<div class="zm-item-answer-author-info">
+<span class="name">匿名用户</span>
+</div>
+<div class="zm-item-vote-info " data-votecount="1">
+
+<span class="voters">
+<span class="user-block"><a data-tip="p$t$wang-hao-87-28" href="http://www.zhihu.com/people/wang-hao-87-28" class="zg-link" title="keen">keen</a></span>
+</span>
+
+
+<span>赞同</span>
+
+
+</div>
+</div>
+<div class="zm-item-rich-text js-collapse-body" data-resourceid="4084815" data-action="/answer/content" data-author-name="匿名用户" data-entry-url="/question/29755376/answer/45587951">
+
+
+<div class="zh-summary summary clearfix" style="display:none;">
+
+建议你利用正则把验证码用urllib.urlretrieve下载下来然后手动输入验证码，还有个验证码id也用正则一并获取，添加post数据后再提交。这是我登录豆瓣的，懒得去折腾知乎了，应该有一点参考价值。import urllib
+import urllib2
+import cookielib
+import re
+
+
+…
+
+<a href="/question/29755376/answer/45587951" class="toggle-expand">显示全部</a>
+
+</div>
+
+
+<div class="zm-editable-content clearfix">
+建议你利用正则把验证码用urllib.urlretrieve下载下来然后手动输入验证码，还有个验证码id也用正则一并获取，添加post数据后再提交。这是我登录豆瓣的，懒得去折腾知乎了，应该有一点参考价值。<br><br><div class="highlight"><pre><code class="language-python"><span class="kn">import</span> <span class="nn">urllib</span>
+<span class="kn">import</span> <span class="nn">urllib2</span>
+<span class="kn">import</span> <span class="nn">cookielib</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+
+<span class="k">class</span> <span class="nc">DB</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">passwd</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="s">"http://www.douban.com/accounts/login"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">post</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">'form_email'</span><span class="p">:</span><span class="n">email</span><span class="p">,</span>
+            <span class="s">'form_password'</span><span class="p">:</span><span class="n">passwd</span><span class="p">,</span>
+            <span class="s">'source'</span><span class="p">:</span><span class="s">'index_nav'</span>
+            <span class="p">}</span>
+        <span class="n">cookie</span> <span class="o">=</span> <span class="n">cookielib</span><span class="o">.</span><span class="n">CookieJar</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">opener</span> <span class="o">=</span> <span class="n">urllib2</span><span class="o">.</span><span class="n">build_opener</span><span class="p">(</span><span class="n">urllib2</span><span class="o">.</span><span class="n">HTTPCookieProcessor</span><span class="p">(</span><span class="n">cookie</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">geturl</span><span class="p">()</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">'logining...'</span>
+            <span class="n">html</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="n">reg</span> <span class="o">=</span> <span class="s">r'&lt;img id="captcha_image" src="(.*?)" alt="captcha" class="captcha_image"/&gt;'</span>
+            <span class="n">imglist</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">reg</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span>
+            <span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">imglist</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s">'captcha.jpg'</span><span class="p">)</span>
+            <span class="n">captcha</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'captcha is: '</span><span class="p">)</span>
+            <span class="n">regid</span> <span class="o">=</span> <span class="s">r'&lt;input type="hidden" name="captcha-id" value="(.*?)"/&gt;'</span>
+            <span class="n">ids</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="n">regid</span><span class="p">,</span> <span class="n">html</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">[</span><span class="s">"captcha-solution"</span><span class="p">]</span> <span class="o">=</span> <span class="n">captcha</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">[</span><span class="s">"captcha-id"</span><span class="p">]</span> <span class="o">=</span> <span class="n">ids</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">[</span><span class="s">"user_login"</span><span class="p">]</span> <span class="o">=</span> <span class="s">"登录"</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">[</span><span class="s">"redir"</span><span class="p">]</span> <span class="o">=</span> <span class="s">'http://www.douban.com/doumail/'</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">opener</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">urllib</span><span class="o">.</span><span class="n">urlencode</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">post</span><span class="p">))</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">response</span><span class="o">.</span><span class="n">geturl</span><span class="p">()</span> <span class="o">==</span> <span class="s">"http://www.douban.com/doumail/"</span><span class="p">:</span>
+                <span class="k">print</span> <span class="s">'login success !'</span>
+               
+<span class="n">email</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Your email: '</span><span class="p">)</span>
+<span class="n">passwd</span> <span class="o">=</span> <span class="nb">raw_input</span><span class="p">(</span><span class="s">'Your passwd: '</span><span class="p">)</span>   
+<span class="n">my</span> <span class="o">=</span> <span class="n">DB</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">passwd</span><span class="p">)</span>         
+<span class="n">my</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+</code></pre></div>
+
+</div>
+
+</div>
+<a class="zg-anchor-hidden ac" name="13630672-comment"></a>
+<div class="zm-item-meta zm-item-comment-el answer-actions clearfix">
+<div class="zm-meta-panel">
+
+<span class="answer-date-link-wrap">
+<a class="answer-date-link last_updated meta-item" data-tip="s$t$发布于 2015-04-22" target="_blank" href="/question/29755376/answer/45587951">编辑于 2015-04-22</a>
+</span>
+
+<a href="#" name="addcomment" class=" meta-item toggle-comment">
+<i class="z-icon-comment"></i>2 条评论</a>
+
+
+<a href="#" class="meta-item zu-autohide" name="thanks" data-thanked="false"><i class="z-icon-thank"></i>感谢</a>
+
+
+
+<a href="#" class="meta-item zu-autohide" name="share">
+<i class="z-icon-share"></i>分享</a>
+<a href="#" class="meta-item zu-autohide" name="favo">
+<i class="z-icon-collect"></i>收藏</a>
+
+
+
+
+<span class="zg-bull zu-autohide">&bull;</span>
+
+<a href="#" name="nohelp" class="meta-item zu-autohide">没有帮助</a>
+
+<span class="zg-bull zu-autohide">&bull;</span>
+<a href="#" name="report" class="meta-item zu-autohide">举报</a>
+
+
+
+<span class="zg-bull">&bull;</span>
+
+<a href="/terms#sec-licence-1" target="_blank" class="meta-item copyright"> 作者保留权利 </a>
+
+
+
+</div>
+</div>
+</div>
+
+<div tabindex="-1" class="zm-item-answer  zm-item-expanded"
+
+itemscope itemtype="http://schema.org/Answer"
+data-aid="13594019"
+data-atoken="45496745"
+data-collapsed="0"
+data-created="1429622523"
+data-deleted="0"
+data-helpful="1"
+data-isowner="0"
+data-copyable="1"
+
+
+>
+<a class="zg-anchor-hidden" name="answer-13594019"></a>
+
+
+<div class="zm-votebar">
+<button class="up ">
+<i class="icon vote-arrow"></i>
+<span class="count">18</span>
+<span class="label sr-only">赞同</span>
+</button>
+<button class="down ">
+<i class="icon vote-arrow"></i>
+<span class="label sr-only">反对</span>
+</button>
+</div>
+
+
+<div class="answer-head">
+<div class="zm-item-answer-author-info">
+
+<a class="zm-item-link-avatar avatar-link" href="/people/7sdream" data-tip="p$t$7sdream">
+<img src="https://pic3.zhimg.com/893fd554c8aa57196d5ab98530ef479a_s.jpg" class="zm-list-avatar avatar">
+</a>
+
+<a class="author-link" data-tip="p$t$7sdream" href="/people/7sdream">7sDream</a>，<span title="二次元新居民/软件爱好者/零回答消灭者" class="bio">二次元新居民/软件爱好者/零回答消灭者</span>
+</div>
+<div class="zm-item-vote-info " data-votecount="18">
+
+<span class="voters">
+<span class="user-block"><a data-tip="p$t$wu-yu-mo-li-sha-8-45" href="http://www.zhihu.com/people/wu-yu-mo-li-sha-8-45" class="zg-link" title="伊澄">伊澄</a>、</span><span class="user-block"><a data-tip="p$t$eric-shao-42" href="http://www.zhihu.com/people/eric-shao-42" class="zg-link" title="Eric Shao">Eric Shao</a>、</span><span class="user-block"><a data-tip="p$t$xi-zhi-yu-41" href="http://www.zhihu.com/people/xi-zhi-yu-41" class="zg-link" title="奚智钰">奚智钰</a></span>
+</span>
+
+
+<a href="javascript:;" class="more"> 等人赞同</a>
+
+
+</div>
+</div>
+<div class="zm-item-rich-text js-collapse-body" data-resourceid="4084815" data-action="/answer/content" data-author-name="7sDream" data-entry-url="/question/29755376/answer/45496745">
+
+
+<div class="zh-summary summary clearfix" style="display:none;">
+
+跟着 <a data-title="@egrcc" data-editable="true" class="member_mention" href="//www.zhihu.com/people/e10ecbd131c8ec3d6c7166820efde22f" data-hash="e10ecbd131c8ec3d6c7166820efde22f" data-tip="p$b$e10ecbd131c8ec3d6c7166820efde22f">@egrcc</a> 大大跑来的关于取不到内容的原因大大已经解释清楚啦，应该就是登录需要验证码的问题。以下是我项目中登录知乎（包括处理验证码）和Cookies管理部分的代码，供你参考，希望对你有所帮助：_Zhihu_URL = 'http://www.zhihu.com'
+_Login_URL = _Zhi…
+
+<a href="/question/29755376/answer/45496745" class="toggle-expand">显示全部</a>
+
+</div>
+
+
+<div class="zm-editable-content clearfix">
+跟着 <a data-title="@egrcc" data-editable="true" class="member_mention" href="//www.zhihu.com/people/e10ecbd131c8ec3d6c7166820efde22f" data-hash="e10ecbd131c8ec3d6c7166820efde22f" data-tip="p$b$e10ecbd131c8ec3d6c7166820efde22f">@egrcc</a> 大大跑来的<br><br>关于取不到内容的原因大大已经解释清楚啦，应该就是登录需要验证码的问题。<br><br>以下是我项目中登录知乎（包括处理验证码）和Cookies管理部分的代码，供你参考，希望对你有所帮助：<br><br><div class="highlight"><pre><code class="language-python"><span class="n">_Zhihu_URL</span> <span class="o">=</span> <span class="s">'http://www.zhihu.com'</span>
+<span class="n">_Login_URL</span> <span class="o">=</span> <span class="n">_Zhihu_URL</span> <span class="o">+</span> <span class="s">'/login'</span>
+<span class="n">_Captcha_URL_Prefix</span> <span class="o">=</span> <span class="n">_Zhihu_URL</span> <span class="o">+</span> <span class="s">'/captcha.gif?r='</span>
+<span class="n">_Cookies_File_Name</span> <span class="o">=</span> <span class="s">'cookies.json'</span>
+
+<span class="n">_session</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">_header</span> <span class="o">=</span> <span class="p">{</span><span class="s">'X-Requested-With'</span><span class="p">:</span> <span class="s">'XMLHttpRequest'</span><span class="p">,</span>
+           <span class="s">'Referer'</span><span class="p">:</span> <span class="s">'http://www.zhihu.com'</span><span class="p">,</span>
+           <span class="s">'User-Agent'</span><span class="p">:</span> <span class="s">'Mozilla/5.0 (Windows NT 6.3; WOW64; '</span>
+                         <span class="s">'Trident/7.0; Touch; LCJB; rv:11.0)'</span>
+                         <span class="s">' like Gecko'</span><span class="p">,</span>
+           <span class="s">'Host'</span><span class="p">:</span> <span class="s">'www.zhihu.com'</span><span class="p">}</span>
+
+<span class="k">def</span> <span class="nf">get_captcha_url</span><span class="p">():</span>
+    <span class="sd">"""获取验证码网址</span>
+
+<span class="sd">    :return: 验证码网址</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    """</span>
+    <span class="k">return</span> <span class="n">_Captcha_URL_Prefix</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">_save_captcha</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">global</span> <span class="n">_session</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">_session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'code.gif'</span><span class="p">,</span> <span class="s">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">login</span><span class="p">(</span><span class="n">email</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">captcha</span><span class="o">=</span><span class="s">''</span><span class="p">,</span> <span class="n">savecookies</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">"""不使用cookies.json，手动登陆知乎</span>
+
+<span class="sd">    :param str email: 邮箱</span>
+<span class="sd">    :param str password: 密码</span>
+<span class="sd">    :param str captcha: 验证码</span>
+<span class="sd">    :param bool savecookies: 是否要储存cookies文件</span>
+<span class="sd">    :return: 一个二元素元祖 , 第一个元素代表是否成功（0表示成功），</span>
+<span class="sd">        如果未成功则第二个元素表示失败原因</span>
+<span class="sd">    :rtype: (int, dict)</span>
+<span class="sd">    """</span>
+    <span class="k">global</span> <span class="n">_session</span>
+    <span class="k">global</span> <span class="n">_header</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s">'email'</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span> <span class="s">'password'</span><span class="p">:</span> <span class="n">password</span><span class="p">,</span>
+            <span class="s">'rememberme'</span><span class="p">:</span> <span class="s">'y'</span><span class="p">,</span> <span class="s">'captcha'</span><span class="p">:</span> <span class="n">captcha</span><span class="p">}</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_Login_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">j</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">j</span><span class="p">[</span><span class="s">'r'</span><span class="p">])</span>
+    <span class="n">m</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="s">'msg'</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">savecookies</span> <span class="ow">is</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">_Cookies_File_Name</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">_session</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">get_dict</span><span class="p">(),</span> <span class="n">f</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">c</span><span class="p">,</span> <span class="n">m</span>
+
+<span class="k">def</span> <span class="nf">create_cookies</span><span class="p">():</span>
+    <span class="sd">"""创建cookies文件, 请跟随提示操作</span>
+
+<span class="sd">    :return: None</span>
+<span class="sd">    :rtype: None</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">_Cookies_File_Name</span><span class="p">)</span> <span class="ow">is</span> <span class="bp">False</span><span class="p">:</span>
+        <span class="n">email</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'email: '</span><span class="p">)</span>
+        <span class="n">password</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'password: '</span><span class="p">)</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">get_captcha_url</span><span class="p">()</span>
+        <span class="n">_save_captcha</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'please check code.gif for captcha'</span><span class="p">)</span>
+        <span class="n">captcha</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s">'captcha: '</span><span class="p">)</span>
+        <span class="n">code</span><span class="p">,</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">login</span><span class="p">(</span><span class="n">email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">captcha</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'cookies file created!'</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s">'code.gif'</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">'Please delete ['</span> <span class="o">+</span> <span class="n">_Cookies_File_Name</span> <span class="o">+</span> <span class="s">'] first.'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">_init</span><span class="p">():</span>
+    <span class="k">global</span> <span class="n">_session</span>
+    <span class="k">if</span> <span class="n">_session</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">_session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">session</span><span class="p">()</span>
+        <span class="n">_session</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">_header</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">_Cookies_File_Name</span><span class="p">):</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">_Cookies_File_Name</span><span class="p">,</span> <span class="s">'r'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">cookies_dict</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+                <span class="n">_session</span><span class="o">.</span><span class="n">cookies</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">cookies_dict</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'no cookies file, this may make something wrong.'</span><span class="p">)</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'if you will run create_cookies or login next, '</span>
+                  <span class="s">'please ignore me.'</span><span class="p">)</span>
+            <span class="n">_session</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">_Login_URL</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="p">{})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s">'call init func two times'</span><span class="p">)</span>
+
+<span class="n">_init</span><span class="p">()</span>
+</code></pre></div><br>然后关于内容解析的部分可以参看 <a data-title="@egrcc" data-editable="true" class="member_mention" href="//www.zhihu.com/people/e10ecbd131c8ec3d6c7166820efde22f" data-hash="e10ecbd131c8ec3d6c7166820efde22f" data-tip="p$b$e10ecbd131c8ec3d6c7166820efde22f">@egrcc</a> 大大的zhihu-python项目，用的Python 2<br><a class=" wrap external" href="https://github.com/egrcc/zhihu-python" target="_blank" rel="nofollow noreferrer">egrcc/zhihu-python · GitHub<i class="icon-external"></i></a><br><br>也可以看看我从大大的项目中分离出来的zhihu-py3项目，用的Python 3，鉴于 Python 2 和 3 的区别就没有Fork而是另外起了一个项目，但是因为我是整个看过大大的代码之后开始动手的，所以想法都差不多<br><a href="https://github.com/7sDream/zhihu-py3" class=" wrap external" target="_blank" rel="nofollow noreferrer">7sDream/zhihu-py3 · GitHub<i class="icon-external"></i></a><br><br>恩，如果你是想解析主页数据，得到答案，答主相关信息之类的，欢迎Fork代码，添加功能~~<br><br>啊对了对了，最近想增加一个导出专栏文章的功能，如果有兴趣的话欢迎一起工作 ヽ(✿ﾟ▽ﾟ)ノ<br><br>目前我的TODO List，恩，也可以加上个【解析登陆用户主页数据】，对哪一部分有兴趣都可以来一起写代码哟<br><br><ul><li>写文档 T^T √</li><li>增加导出为markdown功能 √</li><li>增加获取答案点赞用户，用户关注者，用户追随者，收藏夹关注者，问题关注者等</li><li>增加专栏类和文章类</li><li>增加答案发布时间和更新时间的获取</li></ul><br>以上。
+
+</div>
+
+</div>
+<a class="zg-anchor-hidden ac" name="13594019-comment"></a>
+<div class="zm-item-meta zm-item-comment-el answer-actions clearfix">
+<div class="zm-meta-panel">
+
+<span class="answer-date-link-wrap">
+<a class="answer-date-link meta-item" target="_blank" href="/question/29755376/answer/45496745">发布于 2015-04-21</a>
+</span>
+
+<a href="#" name="addcomment" class=" meta-item toggle-comment">
+<i class="z-icon-comment"></i>53 条评论</a>
+
+
+<a href="#" class="meta-item zu-autohide" name="thanks" data-thanked="false"><i class="z-icon-thank"></i>感谢</a>
+
+
+
+<a href="#" class="meta-item zu-autohide" name="share">
+<i class="z-icon-share"></i>分享</a>
+<a href="#" class="meta-item zu-autohide" name="favo">
+<i class="z-icon-collect"></i>收藏</a>
+
+
+
+
+<span class="zg-bull zu-autohide">&bull;</span>
+
+<a href="#" name="nohelp" class="meta-item zu-autohide">没有帮助</a>
+
+<span class="zg-bull zu-autohide">&bull;</span>
+<a href="#" name="report" class="meta-item zu-autohide">举报</a>
+
+
+
+<span class="zg-bull">&bull;</span>
+
+<a href="/terms#sec-licence-1" target="_blank" class="meta-item copyright"> 作者保留权利 </a>
+
+
+
+</div>
+</div>
+</div>
+
+<div tabindex="-1" class="zm-item-answer  zm-item-expanded"
+
+itemscope itemtype="http://schema.org/Answer"
+data-aid="13593509"
+data-atoken="45495452"
+data-collapsed="0"
+data-created="1429621674"
+data-deleted="0"
+data-helpful="1"
+data-isowner="0"
+data-copyable="1"
+
+
+>
+<a class="zg-anchor-hidden" name="answer-13593509"></a>
+
+
+<div class="zm-votebar">
+<button class="up ">
+<i class="icon vote-arrow"></i>
+<span class="count">3</span>
+<span class="label sr-only">赞同</span>
+</button>
+<button class="down ">
+<i class="icon vote-arrow"></i>
+<span class="label sr-only">反对</span>
+</button>
+</div>
+
+
+<div class="answer-head">
+<div class="zm-item-answer-author-info">
+<span class="name">匿名用户</span>
+</div>
+<div class="zm-item-vote-info " data-votecount="3">
+
+<span class="voters">
+<span class="user-block"><a data-tip="p$t$7sdream" href="http://www.zhihu.com/people/7sdream" class="zg-link" title="7sDream">7sDream</a>、</span><span class="user-block"><a data-tip="p$t$shui-di-you" href="http://www.zhihu.com/people/shui-di-you" class="zg-link" title="水底游">水底游</a>、</span><span class="user-block">匿名用户</span>
+</span>
+
+
+<span>赞同</span>
+
+
+</div>
+</div>
+<div class="zm-item-rich-text js-collapse-body" data-resourceid="4084815" data-action="/answer/content" data-author-name="匿名用户" data-entry-url="/question/29755376/answer/45495452">
+
+
+<div class="zh-summary summary clearfix" style="display:none;">
+
+我的建议是注册一个新帐号，或者把验证码的事情解决掉...我在2013年注册的账号登录时都需要验证码检测，2014年末和2015年年初注册的就不需要验证码。所以说题主可能是被这个小细节阴了一下...其实你可以输出返回的信息看一眼嘛...补充：知乎应该是把验证码…
+
+<a href="/question/29755376/answer/45495452" class="toggle-expand">显示全部</a>
+
+</div>
+
+
+<div class="zm-editable-content clearfix">
+我的建议是注册一个新帐号，或者把验证码的事情解决掉...<br><br>我在2013年注册的账号登录时都需要验证码检测，2014年末和2015年年初注册的就不需要验证码。所以说题主可能是被这个小细节阴了一下...<br><br>其实你可以输出返回的信息看一眼嘛...<br><br>补充：<br>知乎应该是把验证码的功能去掉了，我最近的登陆没有一次需要使用验证码。<br>2015/4/23
+
+</div>
+
+</div>
+<a class="zg-anchor-hidden ac" name="13593509-comment"></a>
+<div class="zm-item-meta zm-item-comment-el answer-actions clearfix">
+<div class="zm-meta-panel">
+
+<span class="answer-date-link-wrap">
+<a class="answer-date-link last_updated meta-item" data-tip="s$t$发布于 2015-04-21" target="_blank" href="/question/29755376/answer/45495452">编辑于 2015-04-23</a>
+</span>
+
+<a href="#" name="addcomment" class=" meta-item toggle-comment">
+<i class="z-icon-comment"></i>3 条评论</a>
+
+
+<a href="#" class="meta-item zu-autohide" name="thanks" data-thanked="false"><i class="z-icon-thank"></i>感谢</a>
+
+
+
+<a href="#" class="meta-item zu-autohide" name="share">
+<i class="z-icon-share"></i>分享</a>
+<a href="#" class="meta-item zu-autohide" name="favo">
+<i class="z-icon-collect"></i>收藏</a>
+
+
+
+
+<span class="zg-bull zu-autohide">&bull;</span>
+
+<a href="#" name="nohelp" class="meta-item zu-autohide">没有帮助</a>
+
+<span class="zg-bull zu-autohide">&bull;</span>
+<a href="#" name="report" class="meta-item zu-autohide">举报</a>
+
+
+
+<span class="zg-bull">&bull;</span>
+
+<a href="/terms#sec-licence-1" target="_blank" class="meta-item copyright"> 作者保留权利 </a>
+
+
+
+</div>
+</div>
+</div>
+
+<div tabindex="-1" class="zm-item-answer  zm-item-expanded"
+
+itemscope itemtype="http://schema.org/Answer"
+data-aid="13592347"
+data-atoken="45492537"
+data-collapsed="0"
+data-created="1429619861"
+data-deleted="0"
+data-helpful="1"
+data-isowner="0"
+data-copyable="1"
+
+
+>
+<a class="zg-anchor-hidden" name="answer-13592347"></a>
+
+
+<div class="zm-votebar">
+<button class="up ">
+<i class="icon vote-arrow"></i>
+<span class="count">5</span>
+<span class="label sr-only">赞同</span>
+</button>
+<button class="down ">
+<i class="icon vote-arrow"></i>
+<span class="label sr-only">反对</span>
+</button>
+</div>
+
+
+<div class="answer-head">
+<div class="zm-item-answer-author-info">
+
+<a class="zm-item-link-avatar avatar-link" href="/people/egrcc" data-tip="p$t$egrcc">
+<img src="https://pic1.zhimg.com/8d41ab78326e5b10b51faaaa33771970_s.jpg" class="zm-list-avatar avatar">
+</a>
+
+<a class="author-link" data-tip="p$t$egrcc" href="/people/egrcc">egrcc</a>
+</div>
+<div class="zm-item-vote-info " data-votecount="5">
+
+<span class="voters">
+<span class="user-block"><a data-tip="p$t$zhu-ming-80-57" href="http://www.zhihu.com/people/zhu-ming-80-57" class="zg-link" title="宁铭">宁铭</a>、</span><span class="user-block"><a data-tip="p$t$xmcp" href="http://www.zhihu.com/people/xmcp" class="zg-link" title="xmcp">xmcp</a>、</span><span class="user-block"><a data-tip="p$t$7sdream" href="http://www.zhihu.com/people/7sdream" class="zg-link" title="7sDream">7sDream</a></span>
+</span>
+
+
+<a href="javascript:;" class="more"> 等人赞同</a>
+
+
+</div>
+</div>
+<div class="zm-item-rich-text js-collapse-body" data-resourceid="4084815" data-action="/answer/content" data-author-name="egrcc" data-entry-url="/question/29755376/answer/45492537">
+
+
+<div class="zh-summary summary clearfix" style="display:none;">
+<img data-rawheight="635" data-rawwidth="1266" src="https://pic3.zhimg.com/074ecbc1f3af861be7450672d7600b72_xld.jpg" class="origin_image inline-img zh-lightbox-thumb" data-original="https://pic3.zhimg.com/074ecbc1f3af861be7450672d7600b72_r.jpg">
+谢邀。（话说最近怎么突然这么多人邀我回答问题。。。）<b>status_code等于200，并不代表登录成功</b>。如图是我错误输入账号后的结果：可以看到状态码仍然是200. 是否登录成功应该看它返回的json中，那个 r 是不是等于 1. r = 1 说明失败，失败原因在 msg 里面。…
+
+<a href="/question/29755376/answer/45492537" class="toggle-expand">显示全部</a>
+
+</div>
+
+
+<div class="zm-editable-content clearfix">
+谢邀。（话说最近怎么突然这么多人邀我回答问题。。。）<br><br><b>status_code等于200，并不代表登录成功</b>。如图是我错误输入账号后的结果：<noscript><img data-rawheight="635" data-rawwidth="1266" src="https://pic3.zhimg.com/074ecbc1f3af861be7450672d7600b72_b.jpg" class="origin_image zh-lightbox-thumb" width="1266" data-original="https://pic3.zhimg.com/074ecbc1f3af861be7450672d7600b72_r.jpg">可以看到状态码仍然是200. 是否登录成功应该看它返回的json中，那个 r 是不是等于 1. r = 1 说明失败，失败原因在 msg 里面。</noscript><img data-rawheight="635" data-rawwidth="1266" src="//zhstatic.zhihu.com/assets/zhihu/ztext/whitedot.jpg" class="origin_image zh-lightbox-thumb lazy" width="1266" data-original="https://pic3.zhimg.com/074ecbc1f3af861be7450672d7600b72_r.jpg" data-actualsrc="https://pic3.zhimg.com/074ecbc1f3af861be7450672d7600b72_b.jpg">可以看到状态码仍然是200. 是否登录成功应该看它返回的json中，那个 r 是不是等于 1. r = 1 说明失败，失败原因在 msg 里面。<br><br>你这个显然是登录失败了，原因是知乎登录有时是需要验证码的。你可以把这个 msg 取出来看看，应该说的是验证码错误之类的话。（可看到图上是“邮箱或密码输入错误”）
+
+</div>
+
+</div>
+<a class="zg-anchor-hidden ac" name="13592347-comment"></a>
+<div class="zm-item-meta zm-item-comment-el answer-actions clearfix">
+<div class="zm-meta-panel">
+
+<span class="answer-date-link-wrap">
+<a class="answer-date-link meta-item" target="_blank" href="/question/29755376/answer/45492537">发布于 2015-04-21</a>
+</span>
+
+<a href="#" name="addcomment" class=" meta-item toggle-comment">
+<i class="z-icon-comment"></i>6 条评论</a>
+
+
+<a href="#" class="meta-item zu-autohide" name="thanks" data-thanked="false"><i class="z-icon-thank"></i>感谢</a>
+
+
+
+<a href="#" class="meta-item zu-autohide" name="share">
+<i class="z-icon-share"></i>分享</a>
+<a href="#" class="meta-item zu-autohide" name="favo">
+<i class="z-icon-collect"></i>收藏</a>
+
+
+
+
+<span class="zg-bull zu-autohide">&bull;</span>
+
+<a href="#" name="nohelp" class="meta-item zu-autohide">没有帮助</a>
+
+<span class="zg-bull zu-autohide">&bull;</span>
+<a href="#" name="report" class="meta-item zu-autohide">举报</a>
+
+
+
+<span class="zg-bull">&bull;</span>
+
+<a href="/terms#sec-licence-1" target="_blank" class="meta-item copyright"> 作者保留权利 </a>
+
+
+
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="question-page-pager">
+
+</div>
+
+
+<div id="zh-question-collapsed-link" class="zu-question-collap-title" style="display:none" >
+<a href="javascript:;" name="expand" class="zg-link-gray" id="zh-question-collapsed-switcher">
+<span id="zh-question-collapsed-num">0</span> 个回答被折叠
+</a>
+（<a target="_blank" href="http://www.zhihu.com/question/20120168" class="zg-link-gray">为什么？</a>）
+</div>
+<div id="zh-question-collapsed-wrap" class="zh-question-answer-wrapper" style="display:none"></div>
+<a name="draft"></a>
+<div id="zh-question-answer-form-wrap" class="zh-question-answer-form-wrap">
+<div class="zm-editable-tip"></div>
+<div class="zm-editable-content"></div>
+</div>
+<div class="shameimaru-placeholder" data-class="QuestionBottomShameimaruV2" data-params='{&quot;token&quot;:29755376}'></div>
+<!-- 版权演示 -->
+
+<script type="text/x-template" id="copyright-demo-template">
+<article>
+
+<section>
+<p class="copyright-demo-title"> 这是你的回答正文 </p>
+<div class="copyright-demo-region"></div>
+<div class="copyright-demo-region"></div>
+<div class="copyright-demo-region"></div>
+<div class="copyright-demo-region"></div>
+<div class="copyright-demo-region"></div>
+</section>
+
+<section>
+<p class="copyright-demo-title"> 当其他人想复制你的一段回答 </p>
+<div class="copyright-demo-region frame2-region" id="copyright-demo-region1">
+<span class="copyright-ico-indicator" id="copyright-demo-indicator"></span>
+</div>
+<div class="copyright-demo-region frame2-region" id="copyright-demo-region2"></div>
+<div class="copyright-demo-region frame2-region" id="copyright-demo-region3"></div>
+<div class="copyright-demo-region frame2-region" id="copyright-demo-region4"></div>
+<div class="copyright-demo-region"></div>
+</section>
+
+<section id="copyright-demo-frame3">
+<p class="copyright-demo-title"> 复制将受限，同时会弹出提醒 </p>
+<div class="copyright-demo-region copyright-demo-region-selected"></div>
+<div class="copyright-demo-region copyright-demo-region-selected"></div>
+<div class="copyright-demo-region copyright-demo-region-selected"></div>
+<div class="copyright-demo-region copyright-demo-region-selected"></div>
+<div class="copyright-demo-region"></div>
+<span class="copyright-ico-pointer copyright-demo-pointer"></span>
+</section>
+</article>
+</script>
+
+
+
+</div>
+</div>
+
+
+<div class="zu-main-sidebar">
+
+<div class="zm-side-section">
+<div class="zm-side-section-inner" id="zh-question-side-header-wrap">
+<button data-follow="q:m:button" class="follow-button zg-follow zg-btn-green" data-id="4084815">关注问题</button>
+
+<div class="zg-btn-white" id="zh-question-operation-menu"
+>
+<i class="zg-icon-dropdown-menu zg-icon"></i><b class="hide-text">设置</b>
+</div>
+
+<div class="zh-question-followers-sidebar">
+<div class="zg-gray-normal">
+
+<a href="/question/29755376/followers"><strong>90</strong></a>
+人关注该问题
+
+</div>
+
+<div class="list zu-small-avatar-list zg-clear">
+
+<a title="水底游"
+data-tip="p$t$shui-di-you"
+class="zm-item-link-avatar"
+href="/people/shui-di-you">
+<img src="https://pic1.zhimg.com/3c79bf578_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="JESSON LUO"
+data-tip="p$t$jesson-luo"
+class="zm-item-link-avatar"
+href="/people/jesson-luo">
+<img src="https://pic1.zhimg.com/da8e974dc_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="windyhoo"
+data-tip="p$t$windyhoo"
+class="zm-item-link-avatar"
+href="/people/windyhoo">
+<img src="https://pic1.zhimg.com/da8e974dc_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<span class="zm-item-link-avatar">
+<img title="匿名用户" class="zm-item-img-avatar" src="https://pic2.zhimg.com/aadd7b895_s.jpg"/>
+</span>
+
+<a title="张潮鹏"
+data-tip="p$t$chaopengz"
+class="zm-item-link-avatar"
+href="/people/chaopengz">
+<img src="https://pic3.zhimg.com/ae356ce5d3a25033a6230a9a1e7d51a6_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="sniper"
+data-tip="p$t$ci-ke-13-90"
+class="zm-item-link-avatar"
+href="/people/ci-ke-13-90">
+<img src="https://pic4.zhimg.com/525c470db637827d674eeda9ad83fb7f_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="Suess Jessica"
+data-tip="p$t$suess-jessica-15"
+class="zm-item-link-avatar"
+href="/people/suess-jessica-15">
+<img src="https://pic1.zhimg.com/7a1fcc6b89a1177a70c712da4d7596ac_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="寻因"
+data-tip="p$t$jin-eric-40"
+class="zm-item-link-avatar"
+href="/people/jin-eric-40">
+<img src="https://pic4.zhimg.com/35b9aec2283774299753200c5f3c51af_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<span class="zm-item-link-avatar">
+<img title="匿名用户" class="zm-item-img-avatar" src="https://pic2.zhimg.com/aadd7b895_s.jpg"/>
+</span>
+
+<a title="文哥哥"
+data-tip="p$t$wen-ge-ge-78"
+class="zm-item-link-avatar"
+href="/people/wen-ge-ge-78">
+<img src="https://pic1.zhimg.com/da8e974dc_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="ambda dxl"
+data-tip="p$t$xing-ming-20-82"
+class="zm-item-link-avatar"
+href="/people/xing-ming-20-82">
+<img src="https://pic2.zhimg.com/a105308c1_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="iYiming"
+data-tip="p$t$xiaohaha"
+class="zm-item-link-avatar"
+href="/people/xiaohaha">
+<img src="https://pic4.zhimg.com/3c48546f74585b3dc883980cf0761be3_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="许小仙"
+data-tip="p$t$xu-xiao-xian-67"
+class="zm-item-link-avatar"
+href="/people/xu-xiao-xian-67">
+<img src="https://pic4.zhimg.com/66766b207_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="codedump"
+data-tip="p$t$codedump"
+class="zm-item-link-avatar"
+href="/people/codedump">
+<img src="https://pic3.zhimg.com/457a6516a_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="凌新楷"
+data-tip="p$t$ling-xin-kai"
+class="zm-item-link-avatar"
+href="/people/ling-xin-kai">
+<img src="https://pic4.zhimg.com/b16f076cb2012ffb05e984edf50b86d7_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="shihuibei"
+data-tip="p$t$shihuibei"
+class="zm-item-link-avatar"
+href="/people/shihuibei">
+<img src="https://pic2.zhimg.com/2de2ea6bd37872310ba9550723c6efc5_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="干申大那多"
+data-tip="p$t$danaduo"
+class="zm-item-link-avatar"
+href="/people/danaduo">
+<img src="https://pic3.zhimg.com/4a5719b06_s.jpg" class="zm-item-img-avatar">
+</a>
+
+<a title="布丁"
+data-tip="p$t$pig_one"
+class="zm-item-link-avatar"
+href="/people/pig_one">
+<img src="https://pic3.zhimg.com/d433490e403ebd9c12d40bdceb2a7e86_s.jpg" class="zm-item-img-avatar">
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
+<div class="shameimaru-placeholder" data-class="QuestionUpShameimaruV2" data-params='{&quot;token&quot;:29755376}'></div>
+<div class="zm-side-section">
+<div class="zm-side-section-inner">
+<div id="zh-question-related-questions" class="zh-question-related-questions clearfix">
+
+<h3>相关问题</h3>
+<ul itemprop="relatedQuestion" itemscope itemtype="http://schema.org/ItemList">
+
+<li itemprop="itemListElement" itemscope itemtype="http://schema.org/Question"><a class="question_link" href="/question/26562140">学会Python之后（作为一个使用Python的程序员）是一种怎样的体验？</a> <span class="num">19 个回答</span><meta itemprop="followerCount" content="484" /></li>
+
+<li itemprop="itemListElement" itemscope itemtype="http://schema.org/Question"><a class="question_link" href="/question/19822151">如何搭建CentOS（只使用CentOS）+ Nginx + MySQL + SQLite + PHP + Python + Perl 服务器？</a> <span class="num">12 个回答</span><meta itemprop="followerCount" content="125" /></li>
+
+<li itemprop="itemListElement" itemscope itemtype="http://schema.org/Question"><a class="question_link" href="/question/23429937">什么是 Agile Methodology（敏捷软件开发）？</a> <span class="num">20 个回答</span><meta itemprop="followerCount" content="315" /></li>
+
+<li itemprop="itemListElement" itemscope itemtype="http://schema.org/Question"><a class="question_link" href="/question/19732025">函数式编程（Functional Programming）相比面向对象编程（Object-oriented Programming）有哪些优缺点？</a> <span class="num">21 个回答</span><meta itemprop="followerCount" content="1462" /></li>
+
+<li itemprop="itemListElement" itemscope itemtype="http://schema.org/Question"><a class="question_link" href="/question/19564719">什么是敏捷（开发）？</a> <span class="num">2 个回答</span><meta itemprop="followerCount" content="18" /></li>
+
+</ul>
+</div>
+</div>
+</div>
+<div class="zm-side-section">
+<div class="zm-side-section-inner">
+<h3>问题状态</h3>
+<div class="zg-gray-normal">
+最近活动于 <span class="time">2015-11-25</span>
+<span class="zg-bull">&bull;</span>
+<a href="/question/29755376/log">查看问题日志</a>
+</div>
+<div class="zg-gray-normal">
+被浏览 <strong>6518</strong> 次，相关话题关注者 <strong>74008</strong> 人
+</div>
+</div>
+</div>
+<div class="shameimaru-placeholder" data-class="QuestionDownShameimaruV2" data-params='{&quot;token&quot;:29755376}'></div>
+
+</div>
+
+
+</div>
+
+
+<div id="zh-footer" class="zh-footer">
+<div class="content zg-wrap clearfix">
+<ul>
+
+<li><a href="https://liukanshan.zhihu.com" target="_blank">刘看山</a></li>
+
+<li><a href="/question/19581624" target="_blank">知乎指南</a></li>
+<li><a href="javascript:;" id="js-feedback-button">建议反馈</a></li>
+
+<li><a href="/app" target="_blank">移动应用</a></li>
+<li><a href="/careers">加入知乎</a></li>
+<li><a href="/terms" target="_blank">知乎协议</a></li>
+<li><a href="mailto:bd@zhihu.com">商务合作</a></li>
+
+</ul>
+
+<span class="copy">&copy; 2015 知乎</span>
+
+</div>
+</div>
+
+<script type="text/json" class="json-inline" data-name="guiders2">{"exclusive-popover":{},"section":{},"editor":[]}</script>
+<script type="text/json" class="json-inline" data-name="current_user">["md52014","md52014","https:\/\/pic1.zhimg.com\/cba02c9334e240104ccd559bb80c08d8_s.jpg","9efed815b254e70a608fb62a641a5bc0","\u5927\u4f17\u6c7d\u8f66\u7814\u7a76\u9662\u7406\u5de5\u7537\u4e00\u679a",0,0,1,"531365872@qq.com","http:\/\/mail.qq.com",0,false,false,false,"61148812541952"]</script>
+<script type="text/json" class="json-inline" data-name="env">["zhihu.com","comet.zhihu.com",false,null]</script>
+<script type="text/json" class="json-inline" data-name="permissions">[]</script>
+
+
+<script type="text/json" class="json-inline" data-name="ga_vars">{"user_created":1411126730000,"now":1449312669000,"abtest_mask":"---------1--------------------","user_attr":[1,0,0,"-",1],"user_hash":"9efed815b254e70a608fb62a641a5bc0"}</script>
+
+<script type="text/json" class="json-inline" data-name="current_question">{"status":"normal","isLocked":0,"detailEditReasonRequired":true,"editPermission":false,"isAnon":0,"qid":4084815,"urlToken":29755376,"showInvitePanel":false,"askAboutMember":0}</script>
+<script type="text/json" class="json-inline" data-name="current_question_owner">false</script>
+<script type="text/json" class="json-inline" data-name="draft">[]</script>
+<script type="text/json" class="json-inline" data-name="my_answer">{}</script>
+
+<script type="text/json" class="json-inline" data-name="redirect_to">""</script>
+
+
+
+<script src="http://static.zhihu.com/static/revved/-/js/vendor.1a51eb6e.js"></script>
+<script src="http://static.zhihu.com/static/revved/-/js/closure/common.95e9d614.js"></script>
+
+
+<script src="http://static.zhihu.com/static/revved/-/js/closure/richtexteditor.326592af.js" async></script>
+<script src="http://static.zhihu.com/static/revved/-/js/closure/page-main.bdbc003c.js"></script>
+<meta name="entry" content="ZH.entrySQ" data-module-id="page-main">
+
+<script type="text/zscript" znonce="eb84188515c9456cb92f0c907cb34a9d"></script>
+
+<input type="hidden" name="_xsrf" value="4bec2859b729b0f299c53d01ddaf440a"/>
+</body>
+</html>
