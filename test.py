@@ -7,8 +7,8 @@ def login():
     url = 'http://www.zhihu.com'
     login_url = url+'/login/email'
     login_data = {
-        'email': '531365872@qq.com', 
-        'password': 'TingGT2911Long',
+        'email': 你的邮箱, 
+        'password': 你的密码,
         'rememberme': 'true',
     }
     headers_base = {
@@ -47,7 +47,7 @@ def login():
     login_data['captcha'] = captcha_str
 
     res = s.post(login_url, headers=headers_base, data=login_data)
-    print res.text
+    print res.status_code
     m_cookies = res.cookies
 
     
