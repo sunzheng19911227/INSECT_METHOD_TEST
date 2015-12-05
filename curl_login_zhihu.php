@@ -11,17 +11,17 @@ header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/zhihuVertify.tmp";
 $cookieSuccess = dirname(__FILE__)."/zhihuSuccess.tmp";
-define('USERNAME', '531365872@qq.com'); // 改为自己的学号
-define('PASSWORD', 'TingGT2911Long'); // 改为自己的密码
+define('USERNAME', ''); // 改为自己的学号
+define('PASSWORD', ''); // 改为自己的密码
 define('_Zhihu_URL', 'http://www.zhihu.com/');
 session_start();
 
 /**********
 _xsrf:8f677ad0d6da9a563a0331e8b7a527e7
-password:TingGT2911Long
+password:
 captcha:fzyd
 remember_me:true
-email:531365872@qq.com
+email:
 ***********/
 $headers_login = array("User-Agent" => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.73 Safari/537.36", 'Host'=>'www.zhihu.com', 'X-Requested-With'=> 'XMLHttpRequest', 'Referer'=> 'http://www.zhihu.com/', 'Connection' => 'keep-alive', 'Accept' => '*/*', 'Origin' => 'http://www.zhihu.com', 'Content-Type'=>'application/x-www-form-urlencoded; charset=UTF-8', 'Accept-Language'=>'zh-CN,zh;q=0.8,en;q=0.6', 'Cookie' => 'q_c1=8cb51eb51ed34c69bc44620bd6acb3cd|1449220944000|1449220944000; _za=29e19c3a-4c76-4d9a-b87f-94f7ea8f53ce; _xsrf=8f677ad0d6da9a563a0331e8b7a527e7; __utmt=1; cap_id="ZWJhYWIxY2NlM2Y3NDQzMzllZjAxYTBlZjQwNjNmYTI=|1449293651|e8ad670721467605d7d64a1d059be1a4dcd38ede"; __utma=51854390.1396146942.1449244880.1449246901.1449292993.3; __utmb=51854390.20.10.1449292993; __utmc=51854390; __utmz=51854390.1449292993.3.3.utmcsr=baidu|utmccn=(organic)|utmcmd=organic; __utmv=51854390.000--|2=registration_date=20140919=1^3=entry_date=20151204=1; n_c=1'); 
 
@@ -66,10 +66,10 @@ if($_SESSION['go'] != 1){
 
 	// /****
 	// _xsrf:8f677ad0d6da9a563a0331e8b7a527e7
-	// password:TingGT2911Long
+	// password:
 	// captcha:fzyd
 	// remember_me:true
-	// email:531365872@qq.com
+	// email:
 	// ****/
 	// $fields_post = array("password"=> PASSWORD, "email"=> USERNAME, "remember_me"=>'true', "captcha" => $verify ,"_xsrf"=>"8f677ad0d6da9a563a0331e8b7a527e7"); 
 	// $fields_string = ""; 
