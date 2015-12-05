@@ -9,8 +9,8 @@ reload(sys)
 sys.setdefaultencoding( "utf-8" )
 type = sys.getfilesystemencoding()
 
-_Zhihu_URL = 'http://www.zhihu.com'
-_Login_URL = _Zhihu_URL + '/login/email'
+url = 'http://www.zhihu.com'
+login_url = url+'/login/email'
 _Captcha_URL_Prefix = _Zhihu_URL + '/captcha.gif?r='
 _Cookies_File_Name = 'cookies.json'
 
@@ -28,9 +28,23 @@ s = requests.session()
 def gen_time_stamp():
     return str(int(time.time())) + '%03d' % random.randint(0, 999)
 
+_xsrf = ""
+
 # 开始访问一次
-html = s.get(_Zhihu_URL,headers=head)
-html.encoding = "gb2312"
+def get_xsrf(url=None):
+	html = s.get(url,headers=head)
+	_cookies = html.cookies
+	_xsrf = _cookies.values()[3]
+	# for i in range(0,len(_cookies.values())):
+	# 	print "键{0}:{1} \n值:{2}\n".format(i,_cookies.keys()[i],_cookies.values()[i])
+	
+	# q_c1 = _cookies.values()[2]
+	# n_c = _cookies.values()[1]
+	# cap_id = _cookies.values()[0]
+
+
+
+
 # 验证码图片
 imgURL = _Captcha_URL_Prefix + gen_time_stamp()
 print imgURL
@@ -43,22 +57,12 @@ with open('code.gif', 'wb') as f:
 captcha = raw_input("captcha: ")
 print(captcha)
 
-_cookies = html.cookies
-
-for i in range(0,len(_cookies.values())):
-	print "键{0}:{1} \n值:{2}\n".format(i,_cookies.keys()[i],_cookies.values()[i])
-
-_xsrf = _cookies.values()[3]
-q_c1 = _cookies.values()[2]
-n_c = _cookies.values()[1]
-cap_id = _cookies.values()[0]
-
 _email = raw_input("email: ")
 _password = raw_input("password: ")
 
 # 发送的数据
-data = {'_xsrf':_xsrf, 'password':_password, 'remember_me':'true', 'email':_email, 'captcha':captcha}
-html_post = s.post(_Login_URL,headers=head,data=data)
+data = {'_xsrf':_xsrf, 'password':_pass, 'remember_me':'true', 'email':_email, 'captcha':captcha}
+html_post = s.post(login_url,headers=head,data=data)
 
 print html_post.text
 
