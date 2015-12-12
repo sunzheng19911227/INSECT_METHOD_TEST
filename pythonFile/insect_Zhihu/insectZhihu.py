@@ -87,7 +87,7 @@ def login_zhihu():
 		# print "键{0}:{1} \n值:{2}\n".format(i,_cookies.keys()[i],_cookies.values()[i])
 		cookieF.write(_user_cookie.keys()[i] + "=" + _user_cookie.values()[i] + ";")
 
-
+	# test
 	res = s.get("http://www.zhihu.com/question/29755376?sort=created", headers=head, cookies=_user_cookie)
 	# print res.text
 
