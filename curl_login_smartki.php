@@ -20,7 +20,7 @@ class loginSmarki
 		$this->md5pwd = $md5pwd;
 		$this->cookie_file = $cookie_file;
 		$this->saveCookie();
-		$this->loginWithCookie();
+//		$this->loginWithCookie();
 	}
 
 	private function saveCookie(){
@@ -32,6 +32,7 @@ class loginSmarki
 		curl_setopt($ch, CURLOPT_COOKIEJAR, $this->cookie_file);
 		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 		$arr = curl_exec($ch);
+		$this->printf_dump($arr);
 		curl_close($ch);
 	}
 
