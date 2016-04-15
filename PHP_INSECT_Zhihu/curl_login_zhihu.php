@@ -11,7 +11,7 @@ header("Content-Type: text/html;charset=gbk");
 //error_reporting(0);
 $cookieVerify = dirname(__FILE__)."/zhihuVertify.tmp";
 $cookieSuccess = dirname(__FILE__)."/zhihuSuccess.tmp";
-define('USERNAME', ''); // 改为自己的学号
+define('USERNAME', ''); // 改为自己的用户名
 define('PASSWORD', ''); // 改为自己的密码
 define('_Zhihu_URL', 'http://www.zhihu.com/');
 session_start();
